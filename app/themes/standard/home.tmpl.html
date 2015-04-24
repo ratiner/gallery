@@ -1,0 +1,25 @@
+<div class="home-wrapper" data-ng-controller="homeCtrl">
+	<div class="tabs">
+		<a data-ng-href="{{year.name}}" data-ng-class="{'selected':year.id==selection.yearId}" data-ng-repeat="year in years">
+			Year: {{year.name}}
+		</a>
+		<div class="spacer"></div>
+	</div>
+	<div class="tab-content">
+	
+		<div class="course-list">
+			<div data-ng-repeat="(semesterLabel, semester) in list">
+				<div class="header">Semester {{semesterLabel}}</div>
+				<a data-ng-class="{'selected':course.id==selection.courseId}" data-ng-href="{{selection.yearName}}/{{semesterLabel}}/{{course.name}}" data-ng-repeat="course in semester">{{course.name}}</a>
+			</div>
+		</div>
+	
+		<div class="notebooks-list">
+			<ul>
+				<li data-ng-repeat="notebook in notebooks"><a data-ng-href="{{selection.yearName}}/{{selection.semester}}/{{selection.courseName}}/{{notebook.name}}">{{notebook.name}}</a></li>
+			</ul>
+		</div>
+	
+		<div class="spacer"></div>
+	</div>
+</div>

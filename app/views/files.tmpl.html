@@ -1,0 +1,49 @@
+<div class="home-wrapper" data-ng-controller="filesCtrl">
+
+    <div class="Files-Header">
+        <div class="Path">
+            <ul>
+                <li>/<a href="javascript:void(0);">root</a></li>
+                <li ng-repeat="folder in path">/<a href="javascript:void(0);" ng-click="FolderClick(folder.url);">{{folder.label}}</a></li>
+            </ul>
+            <div class="spacer"></div>
+        </div>
+        <div class="Search">
+            <div tags-text-box model="Search.SearchTags" ontype="Search.Fetch" onchanged="Search.Fetch"></div>
+        </div>
+        <div class="spacer"></div>
+    </div>
+
+
+
+	<div class="Files">
+		<div data-ng-repeat="(index, item) in list">
+
+			<div class="Box" title="{{item.name}}">
+				<div class="Thumbnail Folder" ng-if="item.type == 'folder'" ng-click="FolderClick(item.path)">&nbsp;</div>
+
+				<div class="Thumbnail" style="background-image:url('{{item.thumbnail}}');" ng-if="item.type != 'folder'" ng-click="Preview.Open(index)">
+                    <input type="checkbox" ng-model="item.selected" ng-click="ToggleCheck(item, $event)" />
+                </div>
+
+				<div ng-class="{true: 'selected'}[item.selected]">{{item.title}}</div>
+			</div>
+		</div>
+
+		<div class="spacer"></div>
+    </div>
+
+
+    <div preview list="list" visible="Preview.Visible" index="Preview.Index">
+
+
+
+    <div class="footer">
+        <ul>
+            <li><a href="javascript:void(0);" ng-click="btSelection()" ng-class="{true: 'selected'}[selection]">SELECT</a></li>
+            <li><a href="javascript:void(0);" >TAGGING</a></li>
+            <li>({{ SelectedItems.length }}) selected. Unselect </li>
+        </ul>
+        <div class="spacer"></div>
+    </div>
+</div>

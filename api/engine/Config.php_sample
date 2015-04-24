@@ -1,0 +1,16 @@
+<?php
+class Config {
+	public static $default_format = 'json';
+	public static $enable_GET = true; //otherwise only post
+	public static $HTTPS_required = false;
+	public static $auth_on = false;
+	public static $enable_crossdomain = true;
+	public static $upload_dir = '/path/to/gallery/root';
+	
+	public static $db = array(
+					'host' => 'MYSQL_HOST_NAME',
+					'username' => 'user',     
+					'password' => 'pw',   
+					'dbname' => 'db'
+	);
+}

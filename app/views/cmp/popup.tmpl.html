@@ -1,0 +1,7 @@
+<div class="popup">
+    <div class="ui_blocker" ng-if="visible" ng-click="CloseClick()"></div>
+    <div class="popup-window" style="width: {{width}}; height: {{height}}; top: {{top}}; left: {{left}};" ng-if="visible">
+        <div class="popup-header">{{ title }} </div>
+        <div class="popup-content"><div ng-transclude></div></div>
+    </div>
+</div>
