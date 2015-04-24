@@ -1,6 +1,6 @@
 **/.idea/workspace.xml
 **/.idea/tasks.xml
-
+**/Config.php
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion
 
 *.iml
